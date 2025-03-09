@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    height: calc(100vh - 5.15rem); /* Content height is 100 viewpoint minus 5.15 rem (header height)*/
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 70.108rem;
+    padding-left: 2.97rem;
+    padding-top: 3.37rem;
+}

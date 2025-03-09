@@ -1,0 +1,23 @@
+.TemplateContent{
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.TemplateBox {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.TemplateCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex: 1 0 0;
+    align-self: stretch;
+
+    border-radius: 0.5 rem;
+    background: #F5F5F5;
+}
