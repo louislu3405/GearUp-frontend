@@ -73,7 +73,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 
 	const handleClickCancel = () => {
 		setNewGearList([]);
-		setNewGearStage(CONSTANTS.gearListState.TEMPLATE);
+		setNewGearStage(newGearList.id === undefined? CONSTANTS.gearListState.TEMPLATE : CONSTANTS.gearListState.LIST);
 	}
 
 	const handleClickSave = async () => {
