@@ -173,7 +173,7 @@ export default function GearListView({
                   <td className={style['gear-list-table-td']}>{userGearList.items.length}</td>
                   <td className={style['gear-list-table-td']}>{calculateUnpreparedGearCount(userGearList.items)}</td>
                   <td className={style['gear-list-table-td']}>{formatDatetime(userGearList.lastEdited)}</td>
-                  <td className={style['gear-list-table-td']}>
+                  <td className={style['gear-list-table-td']} style={{position: "relative"}}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" onClick={() => setVisibleDropdownId(userGearList.id)}>
                       <path d="M14.8975 3.43555C14.8975 4.67819 13.8901 5.68555 12.6475 5.68555C11.4048 5.68555 10.3975 4.67819 10.3975 3.43555C10.3975 2.19291 11.4048 1.18555 12.6475 1.18555C13.8901 1.18555 14.8975 2.19291 14.8975 3.43555Z" fill="black" />
                       <path d="M14.8975 12.4355C14.8975 13.6782 13.8901 14.6855 12.6475 14.6855C11.4048 14.6855 10.3975 13.6782 10.3975 12.4355C10.3975 11.1929 11.4048 10.1855 12.6475 10.1855C13.8901 10.1855 14.8975 11.1929 14.8975 12.4355Z" fill="black" />

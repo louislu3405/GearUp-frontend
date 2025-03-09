@@ -10,14 +10,17 @@ export default function StyledDropdown({texts, callBacks, args, reference}) {
 
   // item: {text, callBackFunction}
   return (
-    <ul className={style.styledDropdown} ref={reference}>
-      {combinedItems.map((item) => 
-        <li
-          key={item.text}
-          onClick={() => item.callBack(...item.arg)}>
-          {item.text}
-        </li>
-      )}
-    </ul>
+    <div className={style['styledDropdown-wrapper']}>
+      <ul className={style['styledDropdown-ul']} ref={reference}>
+        {combinedItems.map((item) => 
+          <li
+            key={item.text}
+            onClick={() => item.callBack(...item.arg)}
+            className={style['styledDropdown-li']}>
+            {item.text}
+          </li>
+        )}
+      </ul>
+    </div>
   );
 };
