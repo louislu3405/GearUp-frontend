@@ -6,9 +6,11 @@ export default function ContentTitle({title, text}) {
       <h1 className={style['main-content-title']}>
         {title}
       </h1>
-      <p className={style['main-content-text']}>
+      {(text !== null) && 
+        <p className={style['main-content-text']}>
         {text}
       </p>
+      }
     </div>
   )
 }

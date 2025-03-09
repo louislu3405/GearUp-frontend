@@ -1,4 +1,8 @@
+import style from "./CreateGearListDetails.module.css"
 import CONSTANTS from "../constants";
+import BackLink from "./BackLink";
+import ContentTitle from "./ContentTitle";
+import StyledButton from "./StyledButton";
 
 export default function CreateGearListDetails({newGearList, setNewGearList, setNewGearStage}) {
 	const handleChangeGearListName = (newGearListName) => {
@@ -131,52 +135,73 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 	}
 
 	return (
-		<div>
-			<h1>{newGearList.id === undefined ? "Create a gear list" : `Edit a gear list`}</h1>
-			<input
-				type="text"
-				placeholder="Name your list"
-				value={newGearList.listName}
-				onChange={(e) => handleChangeGearListName(e.target.value)}
-			/>
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Status</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					{
-						newGearList.items.map
-						(
-							gearItem =>
-								<tr key={gearItem.id}>
-									<td>
-										<input
-										type="text"
-										value={gearItem.name}
-										onChange={(e) => handleChangeGearItemName(gearItem.id, e.target.value)}
-										/>
-									</td>
-									<td>
-										<input 
-											type="Checkbox"
-											checked={gearItem.prepared}
-											onChange={() => handlePreparedCheckboxChange(gearItem.id)}
-										/>
-										{gearItem.prepared ? "Prepared" : "Unprepared"}
-									</td>
-									<td onClick={() => handleRemoveGearItem(gearItem.id)}>Remove</td>
-								</tr>
-						)
-					}
-				</tbody>
-			</table>
-			<p onClick={() => handleAddANewRow()}>Add new row</p>
-			<button onClick={() => handleClickCancel()}>Cancel</button>
-			<button onClick={() => handleClickSave()}>Save</button>
+		<div className={style['gear-list-details-wrapper']}>
+			<div className={style['gear-list-details-title-wrapper']}>
+				<BackLink linkText={"Back to My gear list"} setNewGearStage={setNewGearStage}/>
+				<ContentTitle
+					title={newGearList.id === undefined ? "Create a gear list" : "Edit a gear list"}
+					text={null}
+				/>
+			</div>
+			<div className={style['gear-list-details-main-content-wrapper']}>
+				<div classname={style['gear-list-details-list-name-wrapper']}>
+					<p className={style['gear-list-name-text']}>Name</p>
+					<input
+						type="text"
+						placeholder="Name your list"
+						value={newGearList.listName}
+						onChange={(e) => handleChangeGearListName(e.target.value)}
+						className={style['gear-list-name-input']}
+					/>
+				</div>
+				<table className={style['gear-list-details-table']}>
+					<thead className={style['gear-list-details-table-thead']}>
+						<tr>
+							<th className={style['gear-list-details-table-th']}>Name</th>
+							<th className={style['gear-list-details-table-th']}>Status</th>
+							<th className={style['gear-list-details-table-th-shrink']}></th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							newGearList.items.map
+							(
+								gearItem =>
+									<tr key={gearItem.id}>
+										<td className={style['gear-list-deatils-table-td']}>
+											<input
+											type="text"
+											value={gearItem.name}
+											onChange={(e) => handleChangeGearItemName(gearItem.id, e.target.value)}
+											/>
+										</td>
+										<td  className={style['gear-list-deatils-table-td']}>
+											<input 
+												type="Checkbox"
+												checked={gearItem.prepared}
+												onChange={() => handlePreparedCheckboxChange(gearItem.id)}
+											/>
+											{gearItem.prepared ? "Prepared" : "Unprepared"}
+										</td>
+										<td
+											onClick={() => handleRemoveGearItem(gearItem.id)}
+											className={style['gear-list-deatils-table-td']}
+										>Remove
+										</td>
+									</tr>
+							)
+						}
+					</tbody>
+				</table>
+				<div className={style['gear-list-details-table-button-wrapper']}>
+					<p onClick={() => handleAddANewRow()}>Add new row</p>
+					<p>Reset status</p>
+				</div>
+			</div>
+			<div className={style['footer-button-wrapper']}>
+				<StyledButton text={"Cancel"} onClick={() => handleClickCancel()} ></StyledButton>
+				<StyledButton text={"Save"} onClick={() => handleClickSave()} ></StyledButton>
+			</div>
 		</div>
 	);
 };
