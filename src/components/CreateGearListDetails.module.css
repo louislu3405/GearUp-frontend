@@ -22,13 +22,16 @@
   gap: 0.56rem;
 }
 
-.gear-list-name-text {
+.gear-list-name-input-title {
   font-size: 0.75rem;
   font-weight: 400;
 }
 
 .gear-list-name-input {
   padding: 0.625rem 11.125rem 0.6875rem 1.125rem;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 400;
 
   border-radius: 0.25rem;
   border: 1px solid #D7D7D7;
@@ -54,6 +57,25 @@
   padding: 1.25rem 1rem;
   border-bottom: 1px solid #DEDEDE;
   background: #FFF;
+}
+
+.gear-list-details-table-name-p {
+  margin: 0;
+  padding: 0.745rem;
+  color: #000;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.gear-list-details-table-input {
+  padding: 0.62rem;
+  width: calc(100% - 3.24rem);
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .gear-list-details-table-button-wrapper {

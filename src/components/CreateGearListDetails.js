@@ -1,3 +1,5 @@
+import { useState, useRef, useEffect } from "react";
+
 import style from "./CreateGearListDetails.module.css"
 import CONSTANTS from "../constants";
 import BackLink from "./BackLink";
@@ -5,6 +7,28 @@ import ContentTitle from "./ContentTitle";
 import StyledButton from "./StyledButton";
 
 export default function CreateGearListDetails({newGearList, setNewGearList, setNewGearStage}) {
+
+	// Following two lines are defined for edit item name DOM change
+	const [editingNameItemId, setEditingNameItemId] = useState(null);
+	const nameInputRef = useRef(null);
+
+	useEffect(() => {
+		if (editingNameItemId != null) {
+			document.addEventListener("mousedown", handleClickOutsideName);
+			// allow immediate editing
+			nameInputRef.current.focus();
+			nameInputRef.current.select();
+		} else {
+			document.removeEventListener("mousedown", handleClickOutsideName)
+		}
+
+		
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutsideName)
+		}
+	}, [editingNameItemId]);
+
 	const handleChangeGearListName = (newGearListName) => {
 		setNewGearList({
 			...newGearList,
@@ -57,7 +81,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 				...newGearList,
 				items:[{
 					id: 0,
-					name: "",
+					name: "New Item",
 					prepared: false
 				}]
 			}
@@ -68,7 +92,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 				...newGearList,
 				items:[
 					...newGearList.items,
-					{id: newGearList.items[newGearList.items.length - 1].id + 1, name: "", prepared: false}
+					{id: newGearList.items[newGearList.items.length - 1].id + 1, name: "New Item", prepared: false}
 				]
 			}
 		}
@@ -134,6 +158,14 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 		setNewGearStage(CONSTANTS.gearListState.LIST);
 	}
 
+	const handleClickOutsideName = (event) => {
+		// Handles ref when mouse clicks outside of the item name td.
+		// Used to switch item name <input> back to <p>
+		if (!nameInputRef.current.contains(event.target)) {
+			setEditingNameItemId(null);
+		}
+	};
+
 	return (
 		<div className={style['gear-list-details-wrapper']}>
 			<div className={style['gear-list-details-title-wrapper']}>
@@ -145,7 +177,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 			</div>
 			<div className={style['gear-list-details-main-content-wrapper']}>
 				<div classname={style['gear-list-details-list-name-wrapper']}>
-					<p className={style['gear-list-name-text']}>Name</p>
+					<p className={style['gear-list-name-input-title']}>Name</p>
 					<input
 						type="text"
 						placeholder="Name your list"
@@ -168,12 +200,23 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 							(
 								gearItem =>
 									<tr key={gearItem.id}>
-										<td className={style['gear-list-deatils-table-td']}>
-											<input
-											type="text"
-											value={gearItem.name}
-											onChange={(e) => handleChangeGearItemName(gearItem.id, e.target.value)}
-											/>
+										<td 
+											className={style['gear-list-deatils-table-td']}>
+											{editingNameItemId === gearItem.id ? 
+												<input
+												type="text"
+												value={gearItem.name}
+												className={style['gear-list-details-table-input']}
+												onChange={(e) => handleChangeGearItemName(gearItem.id, e.target.value)}
+												ref={nameInputRef}
+												/> :
+												<p 
+													className={style['gear-list-details-table-name-p']} 
+													onClick={() => setEditingNameItemId(gearItem.id)}>
+													{gearItem.name}
+												</p>
+											}
+
 										</td>
 										<td  className={style['gear-list-deatils-table-td']}>
 											<input 
