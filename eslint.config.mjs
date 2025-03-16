@@ -12,7 +12,13 @@ export default [
     files: ["**/*.{js,mjs,cjs,jsx}"],
     rules: {
       "react/react-in-jsx-scope": "off",
-      "prettier/prettier": "warn",
+      "prettier/prettier": [
+        "warn",
+        {
+          endOfLine: "auto",
+        },
+      ],
+      "react/prop-types": "off", // Disable prop type validation
     },
     settings: {
       react: {

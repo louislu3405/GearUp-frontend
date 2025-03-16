@@ -4,7 +4,7 @@ import GearListTemplate from "./GearListTemplate";
 import CreateGearListDetails from "./CreateGearListDetails";
 import CONSTANTS from "../constants"
 
-export default function CreateGearList ({modalState, setModalState}) {
+export default function CreateGearList ({ handleSetModalState }) {
 	const [newGearList, setNewGearList] = useState([]);
 	const [newGearStage, setNewGearStage] = useState(CONSTANTS.gearListState.LIST);
 	const [userGearLists, setUserGearLists] = useState([]);
@@ -14,13 +14,11 @@ export default function CreateGearList ({modalState, setModalState}) {
 			{
 				newGearStage === CONSTANTS.gearListState.LIST && 
 				<GearListView
-					newGearStage={newGearStage}
 					setNewGearStage={setNewGearStage}
 					userGearLists={userGearLists}
 					setUserGearLists={setUserGearLists}
 					setNewGearList={setNewGearList}
-					modalState={modalState}
-					setModalState={setModalState}
+					handleSetModalState={handleSetModalState}
 				/>
 			}
 			{
