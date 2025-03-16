@@ -4,19 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import StyledButton from "./StyledButton";
 import StyledDropdown from "./StyledDropdown";
 import ContentTitle from "./ContentTitle";
-import style from "./GearListView.module.css"
+import style from "./GearListView.module.css";
 
 export default function GearListView({
-  newGearStage,
   setNewGearStage,
   userGearLists,
   setUserGearLists,
   setNewGearList,
-  modalState,
-  setModalState // for popup modal control
-}) 
-{
-
+  handleSetModalState, // for popup modal control
+}) {
   const [visibleDropdownId, setVisibleDropdownId] = useState(null);
   const dropdownRef = useRef(null);
 
@@ -132,11 +128,8 @@ export default function GearListView({
   };
 
   const handleClickDelete = (listId) => {
-    setModalState({
-      callback: handleDeleteList,
-      args: [listId]
-    });
-  }
+    handleSetModalState(handleDeleteList, [listId]);
+  };
 
   const dropdownTexts = [
     "Edit",
