@@ -1,0 +1,22 @@
+.modal-close {
+  display: flex;
+  justify-content: right;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-main-wrapper {
+  padding: 2.19rem 0 4.81rem 0;
+}
+
+.modal-main-text {
+  margin: 0;
+}
+
+.modal-footer-wrapper {
+  display: flex;
+  gap: 0.69rem;
+  justify-content: flex-end;
+}

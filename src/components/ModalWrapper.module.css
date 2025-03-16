@@ -1,0 +1,19 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: calc(50% - (18.5625rem / 2));
+  left: calc(50% - (40.4375rem / 2));
+  background-color: rgb(255, 255, 255);
+  z-index: 1000;
+  width: 40.4375rem;
+  padding: 3.5rem;
+}

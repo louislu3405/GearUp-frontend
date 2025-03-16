@@ -11,7 +11,9 @@ export default function GearListView({
   setNewGearStage,
   userGearLists,
   setUserGearLists,
-  setNewGearList
+  setNewGearList,
+  modalState,
+  setModalState // for popup modal control
 }) 
 {
 
@@ -129,6 +131,13 @@ export default function GearListView({
     setVisibleDropdownId(null);
   };
 
+  const handleClickDelete = (listId) => {
+    setModalState({
+      callback: handleDeleteList,
+      args: [listId]
+    });
+  }
+
   const dropdownTexts = [
     "Edit",
     "Duplicate",
@@ -138,7 +147,7 @@ export default function GearListView({
   const dropdownCallBacks = [
     handleEditList,
     handleDuplicatelist,
-    handleDeleteList
+    handleClickDelete
   ]
 
   return (
