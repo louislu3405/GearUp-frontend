@@ -168,7 +168,7 @@ export default function GearListView({
           <tbody>
             {userGearLists.map(
               userGearList =>
-                userGearList.isTemplate !== true && // Temporarily prevent showing template gear lists
+                userGearList.image === null && // Temporarily prevent showing template gear lists
                 <tr key={userGearList.id} className={style['gear-list-table-tr']}>
                   <td className={style['gear-list-table-td']} style={{fontWeight: "700"}}>{userGearList.listName}</td>
                   <td className={style['gear-list-table-td']}>{userGearList.activity}</td>
