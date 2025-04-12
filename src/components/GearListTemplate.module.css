@@ -1,12 +1,15 @@
 .TemplateContent{
-    flex-grow: 1;
-    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
 }
 
 .TemplateBox {
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1.375rem;
 }
 
 .TemplateCard {
