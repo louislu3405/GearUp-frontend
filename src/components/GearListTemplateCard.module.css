@@ -1,0 +1,29 @@
+.gear-list-template-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.5rem;
+  background: #EDF8FD;
+}
+
+.gear-list-template-card-header {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.gear-list-template-card-title {
+  color: var(--Surface-Darker, #0A4156);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 1.5rem */
+}
+
+.gear-list-template-card-image-wrapper {
+  display: flex;
+}

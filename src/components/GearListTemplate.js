@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import style from "./GearListTemplate.module.css";
 import CONSTANTS from "../constants";
 
+import GearListTemplateCard from "./GearListTemplateCard";
+import ContentTitle from "./ContentTitle";
+import BackLink from "./BackLink";
+
 export default function GearListTemplate({ setNewGearList, setNewGearStage }) {
   const [templates, setTemplates] = useState([]);
   useEffect(() => {
@@ -14,10 +18,6 @@ export default function GearListTemplate({ setNewGearList, setNewGearStage }) {
     }
     fetchTemplates();
   }, []);
-
-  const handleClickBackToGearList = () => {
-    setNewGearStage(CONSTANTS.gearListState.LIST);
-  };
 
   function selectTemplate(template) {
     template = { ...template }; // shallow copy, only the top-level properties are copied
@@ -36,18 +36,25 @@ export default function GearListTemplate({ setNewGearList, setNewGearStage }) {
 
   return (
     <div className={style.TemplateContent}>
-      <p onClick={() => handleClickBackToGearList()}>Back to My gear list</p>
-      <h1>Create a gear list </h1>
-      <form>
-        <input placeholder="Search a gear..."></input>
-        <input type="submit" value="Search"></input>
-      </form>
+      <div>
+        <BackLink
+          linkText={"Back to gear list"}
+          setNewGearStage={setNewGearStage}
+        />
+        <ContentTitle
+          title={"Create a gear list"}
+          text={"Select an activity to start"}
+        />
+      </div>
       <div className={style.TemplateBox}>
         {templates.map((template) => (
-          <div className={style.TemplateCard} key={template.listName}>
-            <h3> {template.listName} </h3>
-            <button onClick={() => selectTemplate(template)}>Select</button>
-          </div>
+          <GearListTemplateCard
+            key={template.listName}
+            title={template.listName}
+            image_path={template.image}
+            selectCard={selectTemplate}
+            selectCardArg={template}
+          />
         ))}
       </div>
     </div>
