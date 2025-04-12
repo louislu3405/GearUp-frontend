@@ -19,7 +19,7 @@ export default function GearListView({
   // TODO: fetch the gear-lists by user id
   useEffect(() => {
     async function getUserGearList() {
-      let response = await fetch("http://localhost:5066/gear-lists");
+      let response = await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists`);
       let response_json = await response.json();
 
       setUserGearLists(response_json.gearLists);
@@ -93,7 +93,7 @@ export default function GearListView({
       const new_gear_list = {...userGearList};
 
       delete new_gear_list.id;
-      let response = await fetch("http://localhost:5066/gear-lists", {
+      let response = await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -116,7 +116,7 @@ export default function GearListView({
 
   const handleDeleteList = async (listId) => {
     async function delete_list() {
-      await fetch(`http://localhost:5066/gear-lists/${listId}`, {
+      await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists/${listId}`, {
         method: "DELETE",
       });
     };

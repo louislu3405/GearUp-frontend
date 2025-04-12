@@ -10,7 +10,7 @@ export default function GearListTemplate({ setNewGearList, setNewGearStage }) {
   const [templates, setTemplates] = useState([]);
   useEffect(() => {
     async function fetchTemplates() {
-      let res = await fetch("http://localhost:5066/gear-lists");
+      let res = await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists`);
       let res_json = await res.json();
       setTemplates(
         res_json.gearLists.filter((gearList) => gearList.image !== null),

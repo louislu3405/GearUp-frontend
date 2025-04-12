@@ -109,7 +109,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 
 		// POST: Create a new list
 		async function postNewList() {
-			await fetch("http://localhost:5066/gear-lists", {
+			await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -124,7 +124,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 		// PUT: Edit existing list
 		async function putExistedList() {
 			// TODO: Merge two calls to one
-			await fetch(`http://localhost:5066/gear-lists/${newGearList.id}`, {
+			await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists/${newGearList.id}`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
@@ -135,7 +135,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 					"isTemplate": newGearList.isTemplate
 				})
 			});
-			await fetch(`http://localhost:5066/gear-lists/${newGearList.id}/items`, {
+			await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists/${newGearList.id}/items`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
