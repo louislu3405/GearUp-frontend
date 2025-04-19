@@ -6,6 +6,8 @@ import BackLink from "./BackLink";
 import ContentTitle from "./ContentTitle";
 import StyledButton from "./StyledButton";
 
+import SelectInputField from "./SelectInputField";
+
 export default function CreateGearListDetails({newGearList, setNewGearList, setNewGearStage}) {
 
 	// Following two lines are defined for edit item name DOM change
@@ -36,19 +38,19 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 		});
 	}
 
-	const handleChangeGearItemName = (id, newGearItemName) => {
-		const updatedItems = newGearList.items.map((gearItem) => {
-			if (id === gearItem.id) {
-				gearItem.name = newGearItemName;
-			}
-			return gearItem;
-		})
-		const updatedNewGearList = {
-			...newGearList,
-			items: updatedItems
-		}
-		setNewGearList(updatedNewGearList);
-	}
+  const handleChangeGearItemName = (id, newGearItemName) => {
+    const updatedItems = newGearList.items.map((gearItem) => {
+      if (id === gearItem.id) {
+        gearItem.name = newGearItemName;
+      }
+      return gearItem;
+    });
+    const updatedNewGearList = {
+      ...newGearList,
+      items: updatedItems,
+    };
+    setNewGearList(updatedNewGearList);
+  };
 
 	const handlePreparedCheckboxChange = (id) => {
 		const updatedItems = newGearList.items.map((gearItem) => {
@@ -202,20 +204,16 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 									<tr key={gearItem.id}>
 										<td 
 											className={style['gear-list-deatils-table-td']}>
-											{editingNameItemId === gearItem.id ? 
-												<input
-												type="text"
-												value={gearItem.name}
-												className={style['gear-list-details-table-input']}
-												onChange={(e) => handleChangeGearItemName(gearItem.id, e.target.value)}
-												ref={nameInputRef}
-												/> :
-												<p 
-													className={style['gear-list-details-table-name-p']} 
-													onClick={() => setEditingNameItemId(gearItem.id)}>
-													{gearItem.name}
-												</p>
-											}
+                  <SelectInputField
+                    required={true}
+                    title={"Item"}
+                    placeholderValue={"Item name"}
+                    inputValue={gearItem.name}
+                    setInputValue={(newValue) =>
+                      handleChangeGearItemName(gearItem.id, newValue)
+                    }
+                    helpText={"Please enter item name."}
+                  />
 
 										</td>
 										<td  className={style['gear-list-deatils-table-td']}>
