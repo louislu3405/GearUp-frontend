@@ -1,0 +1,66 @@
+.select-input-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 1.5rem;
+}
+
+.select-input-field-wrapper-warning {
+  padding-bottom: 0.1875rem;
+}
+
+.select-input-field-title-wrapper {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  padding-bottom: 0.5rem;
+}
+
+.slect-input-field-required {
+  color: #E71D1E;
+  text-align: right;
+  font-family: SimSong;
+
+  /* Below is to vertical center required * sign. */
+  /* line-height: 1.37506rem; */
+  padding-top: 0.3rem;
+}
+
+.select-input-field-title {
+  font-family: Inter;
+  line-height: 150%;
+}
+
+.select-input-field-input-wrapper {
+  padding: 0.0625rem 0rem;
+  align-items: center;
+}
+
+.select-input-field-input {
+  padding: 0.5rem 0.75rem;
+  border: solid 1px #ABABAB;
+  border-radius: 0.125rem;
+
+  color: #3B3B3B;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.select-input-field-input-warning {
+  border: solid 1px #E71D1E;
+}
+
+.select-input-field-help-text {
+  color: #E71D1E;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}

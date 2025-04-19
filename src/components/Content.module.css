@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    height: calc(100vh - 5.15rem); /* Content height is 100 viewpoint minus 5.15 rem (header height)*/
+    flex-grow: 1;
 }
 
 .main-content {
