@@ -1,0 +1,27 @@
+.button-wrapper {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.button-primary {
+  background: #116A8D;
+  color: #F5F5F5;
+}
+
+.button-secondary {
+  background: #FFF;
+  border: 1px solid #116A8D;
+  color: #116A8D;
+}
