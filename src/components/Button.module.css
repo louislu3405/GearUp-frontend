@@ -6,13 +6,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.2rem;
   padding: 0.5rem 1rem;
 
   border-radius: 0.25rem;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 
 .button-primary {
@@ -24,4 +21,15 @@
   background: #FFF;
   border: 1px solid #116A8D;
   color: #116A8D;
+}
+
+.button-iconOnly {
+  padding: 0.63rem;
+}
+
+.button-text{
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }

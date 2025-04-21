@@ -1,7 +1,7 @@
 import CONSTANTS from "../constants"
 import { useState, useEffect, useRef } from "react";
 
-import Button, { BUTTON_TYPES } from "./Button";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "./Button";
 import StyledDropdown from "./StyledDropdown";
 import ContentTitle from "./ContentTitle";
 import style from "./GearListView.module.css";
@@ -148,7 +148,8 @@ export default function GearListView({
       <ContentTitle title={"Gear List"} text={"Gear list shows what the gears you need for all your activities."}/>
       <div>
         <Button
-          type={BUTTON_TYPES.PRIMARY}
+          iconPosition={ICON_POSITION.NONE}
+          buttonType={BUTTON_TYPES.PRIMARY}
           label="Create a gear list"
           callBack={() => handleClickCreateGearList()}
         />
