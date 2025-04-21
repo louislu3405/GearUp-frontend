@@ -1,5 +1,5 @@
-import style from "./MessageModal.module.css"
-import StyledButton from "./StyledButton";
+import style from "./MessageModal.module.css";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "./Button";
 
 export default function MessageModal({
   modalState, // modal control
@@ -46,17 +46,17 @@ export default function MessageModal({
         </p>
       </div>
       <div className={style["modal-footer-wrapper"]}>
-        <StyledButton
-          text={"Cancel"}
-          onClick={() => {
-            handleCancel();
-          }}
+        <Button
+          iconPosition={ICON_POSITION.NONE}
+          buttonType={BUTTON_TYPES.SECONDARY}
+          label={"Cancel"}
+          callBack={() => handleCancel()}
         />
-        <StyledButton
-          text={"Delete"}
-          onClick={() => {
-            handleConfirm();
-          }}
+        <Button
+          iconPosition={ICON_POSITION.NONE}
+          buttonType={BUTTON_TYPES.PRIMARY}
+          label={"Save"}
+          callBack={() => handleConfirm()}
         />
       </div>
     </div>

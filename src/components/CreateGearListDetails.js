@@ -4,9 +4,9 @@ import style from "./CreateGearListDetails.module.css"
 import CONSTANTS from "../constants";
 import BackLink from "./BackLink";
 import ContentTitle from "./ContentTitle";
-import StyledButton from "./StyledButton";
 
 import SelectInputField from "./SelectInputField";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "./Button";
 
 export default function CreateGearListDetails({newGearList, setNewGearList, setNewGearStage}) {
 
@@ -239,10 +239,20 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 					<p>Reset status</p>
 				</div>
 			</div>
-			<div className={style['footer-button-wrapper']}>
-				<StyledButton text={"Cancel"} onClick={() => handleClickCancel()} ></StyledButton>
-				<StyledButton text={"Save"} onClick={() => handleClickSave()} ></StyledButton>
-			</div>
+      <div className={style["footer-button-wrapper"]}>
+        <Button
+          iconPosition={ICON_POSITION.NONE}
+          buttonType={BUTTON_TYPES.SECONDARY}
+          label={"Cancel"}
+          callBack={() => handleClickCancel()}
+        />
+        <Button
+          iconPosition={ICON_POSITION.NONE}
+          buttonType={BUTTON_TYPES.PRIMARY}
+          label={"Save"}
+          callBack={() => handleClickSave()}
+        />
+      </div>
 		</div>
 	);
 };
