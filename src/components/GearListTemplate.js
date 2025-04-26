@@ -21,7 +21,6 @@ export default function GearListTemplate({ setNewGearList, setNewGearStage }) {
 
   function selectTemplate(template) {
     template = { ...template }; // shallow copy, only the top-level properties are copied
-    template.isTemplate = false;
     template.listName = "";
     delete template.id;
     let id = 0;

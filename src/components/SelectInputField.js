@@ -5,7 +5,7 @@ export default function SelectInputField({
   required, // bool, this input is required or not
   title, // string, title text
   placeholderValue, // string, input placeHolder value
-  inputValue, // state of input value,
+  inputValue = "", // state of input value,
   setInputValue, // setState of input value
   helpText = "", // Help text, displayed below the input
 }) {
@@ -29,7 +29,7 @@ export default function SelectInputField({
           onChange={(e) => {
             setInputValue(e.target.value);
           }}
-        ></input>
+        />
       </div>
       {required && inputValue === "" && (
         <div className={style["select-input-field-help-text"]}>{helpText}</div>

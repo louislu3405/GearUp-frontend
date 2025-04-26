@@ -1,7 +1,7 @@
 import CONSTANTS from "../constants"
 import { useState, useEffect, useRef } from "react";
 
-import Button, { BUTTON_TYPES, ICON_POSITION } from "./Button";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/button/Button";
 import StyledDropdown from "./StyledDropdown";
 import ContentTitle from "./ContentTitle";
 import style from "./GearListView.module.css";
@@ -83,7 +83,6 @@ export default function GearListView({
 
   const handleEditList = (userGearList) => {
     setNewGearList(userGearList);
-    console.log(userGearList);
     setNewGearStage(CONSTANTS.gearListState.DETAILS);
   };
 
