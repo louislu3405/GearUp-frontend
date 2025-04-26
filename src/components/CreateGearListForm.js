@@ -1,5 +1,5 @@
 // A component of form for creating a new gear list.
-import Button, { BUTTON_TYPES, ICON_POSITION, ICON_TYPES } from "./Button";
+import Button, { BUTTON_TYPES, ICON_POSITION, ICON_TYPES } from "./atomic/button/Button";
 import style from "./CreateGearListForm.module.css";
 import SelectInputField from "./SelectInputField";
 
