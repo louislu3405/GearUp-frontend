@@ -117,8 +117,8 @@ export default function CreateGearListDetails({
         <ContentTitle
           title={
             newGearList.id === undefined
-              ? "Create a gear list"
-              : "Edit a gear list"
+              ? `Create a ${newGearList.activity} gear list`
+              : `Edit ${newGearList.listName}`
           }
           text={null}
         />
