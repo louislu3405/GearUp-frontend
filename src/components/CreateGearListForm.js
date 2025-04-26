@@ -39,6 +39,19 @@ export default function CreateGearListForm({
     });
   };
 
+  const handleUpdateItemNote = (itemId, newItemNote) => {
+    const updatedItems = newGearList.items.map((item) => {
+      if (item.id === itemId) {
+        return { ...item, note: newItemNote };
+      }
+      return item;
+    });
+    setNewGearList({
+      ...newGearList,
+      items: updatedItems,
+    });
+  };
+
   // Remove an item, triggered by clicking X button
   const handleRemoveItem = (itemId) => {
     const updatedItems = newGearList.items.filter((item) => item.id !== itemId);
@@ -109,7 +122,9 @@ export default function CreateGearListForm({
               required={false}
               title={"Note"}
               inputValue={gearItem.note}
-              setInputValue={() => {}}
+              setInputValue={(newItemNote) =>
+                handleUpdateItemNote(gearItem.id, newItemNote)
+              }
               placeholderValue={"Add some notes for this item"}
             />
             <Button

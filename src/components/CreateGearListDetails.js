@@ -7,6 +7,7 @@ import ContentTitle from "./ContentTitle";
 
 import SelectInputField from "./SelectInputField";
 import Button, { BUTTON_TYPES, ICON_POSITION } from "./Button";
+import CreateGearListForm from "./CreateGearListForm";
 
 export default function CreateGearListDetails({newGearList, setNewGearList, setNewGearStage}) {
 
@@ -134,7 +135,7 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 				body: JSON.stringify({
 					"listName": newGearList.listName,
 					"activity": newGearList.activity,
-					"isTemplate": newGearList.isTemplate
+					"description": newGearList.description
 				})
 			});
 			await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists/${newGearList.id}/items`, {
@@ -177,68 +178,10 @@ export default function CreateGearListDetails({newGearList, setNewGearList, setN
 					text={null}
 				/>
 			</div>
-			<div className={style['gear-list-details-main-content-wrapper']}>
-				<div classname={style['gear-list-details-list-name-wrapper']}>
-					<p className={style['gear-list-name-input-title']}>Name</p>
-					<input
-						type="text"
-						placeholder="Name your list"
-						value={newGearList.listName}
-						onChange={(e) => handleChangeGearListName(e.target.value)}
-						className={style['gear-list-name-input']}
-					/>
-				</div>
-				<table className={style['gear-list-details-table']}>
-					<thead className={style['gear-list-details-table-thead']}>
-						<tr>
-							<th className={style['gear-list-details-table-th']}>Name</th>
-							<th className={style['gear-list-details-table-th']}>Status</th>
-							<th className={style['gear-list-details-table-th-shrink']}></th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							newGearList.items.map
-							(
-								gearItem =>
-									<tr key={gearItem.id}>
-										<td 
-											className={style['gear-list-deatils-table-td']}>
-                  <SelectInputField
-                    required={true}
-                    title={"Item"}
-                    placeholderValue={"Item name"}
-                    inputValue={gearItem.name}
-                    setInputValue={(newValue) =>
-                      handleChangeGearItemName(gearItem.id, newValue)
-                    }
-                    helpText={"Please enter item name."}
-                  />
-
-										</td>
-										<td  className={style['gear-list-deatils-table-td']}>
-											<input 
-												type="Checkbox"
-												checked={gearItem.prepared}
-												onChange={() => handlePreparedCheckboxChange(gearItem.id)}
-											/>
-											{gearItem.prepared ? "Prepared" : "Unprepared"}
-										</td>
-										<td
-											onClick={() => handleRemoveGearItem(gearItem.id)}
-											className={style['gear-list-deatils-table-td']}
-										>Remove
-										</td>
-									</tr>
-							)
-						}
-					</tbody>
-				</table>
-				<div className={style['gear-list-details-table-button-wrapper']}>
-					<p onClick={() => handleAddANewRow()}>Add new row</p>
-					<p>Reset status</p>
-				</div>
-			</div>
+      <CreateGearListForm
+        newGearList={newGearList}
+        setNewGearList={setNewGearList}
+      ></CreateGearListForm>
       <div className={style["footer-button-wrapper"]}>
         <Button
           iconPosition={ICON_POSITION.NONE}
