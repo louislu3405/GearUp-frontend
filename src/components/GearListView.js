@@ -83,7 +83,6 @@ export default function GearListView({
 
   const handleEditList = (userGearList) => {
     setNewGearList(userGearList);
-    console.log(userGearList);
     setNewGearStage(CONSTANTS.gearListState.DETAILS);
   };
 
