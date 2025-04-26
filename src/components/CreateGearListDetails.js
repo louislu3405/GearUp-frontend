@@ -127,19 +127,22 @@ export default function CreateGearListDetails({
         newGearList={newGearList}
         setNewGearList={setNewGearList}
       ></CreateGearListForm>
-      <div className={style["footer-button-wrapper"]}>
-        <Button
-          iconPosition={ICON_POSITION.NONE}
-          buttonType={BUTTON_TYPES.SECONDARY}
-          label={"Cancel"}
-          callBack={() => handleClickCancel()}
-        />
-        <Button
-          iconPosition={ICON_POSITION.NONE}
-          buttonType={BUTTON_TYPES.PRIMARY}
-          label={"Save"}
-          callBack={() => handleClickSave()}
-        />
+      <div className={style["footer-wrapper"]}>
+        <div className={style["footer-divider"]} />
+        <div className={style["footer-button-wrapper"]}>
+          <Button
+            iconPosition={ICON_POSITION.NONE}
+            buttonType={BUTTON_TYPES.SECONDARY}
+            label={"Cancel"}
+            callBack={() => handleClickCancel()}
+          />
+          <Button
+            iconPosition={ICON_POSITION.NONE}
+            buttonType={BUTTON_TYPES.PRIMARY}
+            label={"Save"}
+            callBack={() => handleClickSave()}
+          />
+        </div>
       </div>
     </div>
   );

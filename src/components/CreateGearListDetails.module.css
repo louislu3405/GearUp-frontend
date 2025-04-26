@@ -83,6 +83,18 @@
   gap: 1rem;
 }
 
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-divider {
+  height: 0.0625rem;
+  width: 70rem;
+  background-color: #ABABAB;
+}
+
 .footer-button-wrapper {
   display: flex;
   gap: 0.69rem;
