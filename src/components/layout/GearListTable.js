@@ -20,6 +20,7 @@ const formatDatetime = (dateString) => {
   };
 
   // format string with commas
+  // eslint-disable-next-line no-undef
   let formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
   // Remove the first comma, and replace the second comma with •
   formattedDate = formattedDate.replace(",", "").replace(",", " •");

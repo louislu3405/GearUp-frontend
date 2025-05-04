@@ -126,7 +126,7 @@ export default function CreateGearListDetails({
       <CreateGearListForm
         newGearList={newGearList}
         setNewGearList={setNewGearList}
-      ></CreateGearListForm>
+      />
       <div className={style["footer-wrapper"]}>
         <div className={style["footer-divider"]} />
         <div className={style["footer-button-wrapper"]}>

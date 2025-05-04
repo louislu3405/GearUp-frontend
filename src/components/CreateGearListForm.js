@@ -1,5 +1,9 @@
 // A component of form for creating a new gear list.
-import Button, { BUTTON_TYPES, ICON_POSITION, ICON_TYPES } from "./atomic/button/Button";
+import Button, {
+  BUTTON_TYPES,
+  ICON_POSITION,
+  ICON_TYPES,
+} from "./atomic/button/Button";
 import style from "./CreateGearListForm.module.css";
 import SelectInputField from "./SelectInputField";
 
@@ -93,11 +97,11 @@ export default function CreateGearListForm({
             helpText={"Please enter list name."}
           />
         </div>
-        <div className={style["input-wrapper"]}>
+        <div className={style["input-wrapper"]} key={123}>
           <SelectInputField
             required={false}
             title={"Description"}
-            inputValue={newGearList.description}
+            inputValue={newGearList.description ? newGearList.description : ""}
             setInputValue={handleUpdateGearListDescription}
             placeholderValue={"Add some notes for this list"}
           />
@@ -105,7 +109,7 @@ export default function CreateGearListForm({
       </div>
       <div className={style["items-wrapper"]}>
         {newGearList.items.map((gearItem) => (
-          <div key={gearItem.Name} className={style["item-wrapper"]}>
+          <div key={gearItem.id} className={style["item-wrapper"]}>
             <div className={style["item-name"]}>
               <SelectInputField
                 required={true}
@@ -121,7 +125,7 @@ export default function CreateGearListForm({
             <SelectInputField
               required={false}
               title={"Note"}
-              inputValue={gearItem.note}
+              inputValue={gearItem.note ? gearItem.note : ""}
               setInputValue={(newItemNote) =>
                 handleUpdateItemNote(gearItem.id, newItemNote)
               }
