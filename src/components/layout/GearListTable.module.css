@@ -1,0 +1,123 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 70rem;
+}
+
+.toolbar {
+  display: flex;
+  padding: 1rem 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.title {
+  color: #1F1F1F;
+
+  /* Body / Bold */
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 1.5rem */
+}
+
+.table-wrapper {
+  display: flex;
+}
+
+.table {
+  flex: 1 0 0;
+  font-size: 0.875rem;
+}
+
+.table-head-row {
+  display: flex;
+
+  border-bottom: 1px solid #EBEBEB;
+  background-color: #FAFDFE;
+  text-align: left;
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 1.3125rem */
+}
+
+.th-small {
+  padding: 1rem;
+}
+
+.th-regular {
+  position: relative;
+  padding: 1rem;
+  flex: 1 0 0;
+}
+
+.divider {
+  position: absolute;
+  width: 0.0625rem;
+  height: 1.375rem;
+  top: 1rem;
+  bottom: 1rem;
+  left: 0;
+  background-color: #EBEBEB;
+}
+
+.table-body-row {
+  display: flex;
+
+  border-bottom: 1px solid #EBEBEB;
+  line-height: 150%;
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+}
+
+.td-small {
+  padding: 1rem;
+}
+
+.td-regular {
+  flex: 1 0 0;
+  padding: 1rem;
+}
+
+.td-name {
+  color: #116A8D;
+  font-weight: 700;
+}
+
+.td-name:hover {
+  cursor: pointer;
+}
+
+.td-progress {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.td-icon {
+  display: flex;
+  position: relative; /* For DropdownMenu*/
+  align-items: center;
+}
+
+.progress-wrapper {
+  flex: 1 0 0;
+}
+
+.percentage-wrapper {
+  width: 1.875rem;
+}
+
+.float-dropdown {
+  position: absolute;
+  top: 70%;
+  transform: translateX(-90%);
+  z-index: 1;
+}
