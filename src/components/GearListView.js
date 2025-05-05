@@ -1,6 +1,7 @@
 import CONSTANTS from "../constants";
 import { useState, useEffect, useRef } from "react";
 
+import style from "./GearListView.module.css";
 import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/button/Button";
 import ContentTitle from "./ContentTitle";
 import NoGearList from "./layout/NoGearList";
@@ -97,22 +98,26 @@ export default function GearListView({
 
   return (
     <>
-      <ContentTitle
-        title={"Gear List"}
-        text={
-          "Gear list shows what the gears you need for all your activities."
-        }
-      />
+      <div className={style["header-wrapper"]}>
+        <ContentTitle
+          title={"Gear List"}
+          text={
+            "Gear list shows what the gears you need for all your activities."
+          }
+        />
+        <div>
+          <Button
+            iconPosition={ICON_POSITION.NONE}
+            buttonType={BUTTON_TYPES.PRIMARY}
+            label="Create a gear list"
+            callBack={() => handleClickCreateGearList()}
+          />
+        </div>
+      </div>
+
       {userGearLists.filter((gearList) => !gearList.image).length !== 0 ? (
         <>
-          <div>
-            <Button
-              iconPosition={ICON_POSITION.NONE}
-              buttonType={BUTTON_TYPES.PRIMARY}
-              label="Create a gear list"
-              callBack={() => handleClickCreateGearList()}
-            />
-          </div>
+
           <GearListTable
             gearLists={userGearLists}
             handleClickEdit={handleEditList}
