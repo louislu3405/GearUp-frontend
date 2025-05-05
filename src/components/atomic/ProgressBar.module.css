@@ -1,0 +1,12 @@
+.background {
+  border-radius: 6.25rem;
+  background-color: #F5F5F5;
+  height: 0.5rem;
+  width: 100%;
+}
+
+.progress {
+  background-color: #116A8D;
+  border-radius: 6.25rem;
+  height: 100%;
+}
