@@ -7,7 +7,20 @@ import Button, {
 import Checkbox from "./atomic/Checkbox";
 import style from "./PreparePanel.module.css";
 
-export default function PreparePanel({ editingList, handleSetEditPanelList }) {
+export default function PreparePanel({
+  preparingList, // Current preparing list
+  handleSetPreparePanelList, // Set current preparing list
+  userGearLists, // Gear Lists on the table view
+  setUserGearLists, // Update the table view lists
+}) {
+  const updateUserGearLists = (updatedPreparingList) => {
+    // Update Gear Lists table after check/uncheck
+    const updatedLists = userGearLists.map((gearList) =>
+      gearList.id === preparingList.id ? updatedPreparingList : gearList,
+    );
+    setUserGearLists(updatedLists);
+  };
+
   async function unprepareItem(itemId) {
     await fetch(`${CONSTANTS.BACKEND_ROOT_URL}/gear-lists/items/${itemId}`, {
       method: "PUT",
@@ -18,10 +31,15 @@ export default function PreparePanel({ editingList, handleSetEditPanelList }) {
     });
 
     // update state
-    const updatedItems = editingList.items.map((item) =>
+    const updatedItems = preparingList.items.map((item) =>
       item.id === itemId ? { ...item, prepared: false } : item,
     );
-    handleSetEditPanelList({ ...editingList, items: updatedItems });
+
+    const updatedPreparingList = { ...preparingList, items: updatedItems };
+    handleSetPreparePanelList(updatedPreparingList);
+
+    // Update Gear Lists table
+    updateUserGearLists(updatedPreparingList);
   }
 
   async function prepareItem(itemId) {
@@ -34,10 +52,15 @@ export default function PreparePanel({ editingList, handleSetEditPanelList }) {
     });
 
     // update state
-    const updatedItems = editingList.items.map((item) =>
+    const updatedItems = preparingList.items.map((item) =>
       item.id === itemId ? { ...item, prepared: true } : item,
     );
-    handleSetEditPanelList({ ...editingList, items: updatedItems });
+
+    const updatedPreparingList = { ...preparingList, items: updatedItems };
+    handleSetPreparePanelList(updatedPreparingList);
+
+    // Update Gear Lists table
+    updateUserGearLists(updatedPreparingList);
   }
 
   return (
@@ -45,16 +68,16 @@ export default function PreparePanel({ editingList, handleSetEditPanelList }) {
       <div className={style["panel"]}>
         <div className={style["header"]}>
           <div className={style["title"]}>
-            <div className={style["title-text"]}>{editingList.listName}</div>
+            <div className={style["title-text"]}>{preparingList.listName}</div>
             <Button
               iconPosition={ICON_POSITION.ICON_ONLY}
               iconType={ICON_TYPES.CROSS}
               buttonType={BUTTON_TYPES.TERTIARY}
-              callBack={() => handleSetEditPanelList(null)}
+              callBack={() => handleSetPreparePanelList(null)}
             />
           </div>
           <div className={style["subtitle"]}>
-            Total: <b>{editingList.items.length}</b> items
+            Total: <b>{preparingList.items.length}</b> items
           </div>
         </div>
         <table className={style["table"]}>
@@ -72,7 +95,7 @@ export default function PreparePanel({ editingList, handleSetEditPanelList }) {
             </tr>
           </thead>
           <tbody className={style["tbody"]}>
-            {editingList.items.map((item) => (
+            {preparingList.items.map((item) => (
               <tr key={item.id} className={style["tr"]}>
                 <td className={style["td-checkbox"]}>
                   <Checkbox

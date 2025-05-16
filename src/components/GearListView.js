@@ -13,7 +13,7 @@ export default function GearListView({
   setUserGearLists,
   setNewGearList,
   handleSetModalState, // for popup modal control
-  handleSetEditPanelList, // For side panel
+  handleSetPreparePanelList, // For side panel
 }) {
   const [visibleDropdownId, setVisibleDropdownId] = useState(null);
   const dropdownRef = useRef(null);
@@ -120,7 +120,7 @@ export default function GearListView({
         <>
           <GearListTable
             gearLists={userGearLists}
-            handleClickListName={handleSetEditPanelList}
+            handleClickListName={handleSetPreparePanelList}
             handleClickEdit={handleEditList}
             handleClickDupldate={handleDuplicatelist}
             handleClickDelete={handleClickDelete}

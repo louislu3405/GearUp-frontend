@@ -6,7 +6,8 @@ import PreparePanel from "./components/PreparePanel";
 
 function App() {
   const [modalState, setModalState] = useState(null); // For modal control. Pass in callback/args
-  const [editPanelList, setEditPanelList] = useState(null);
+  const [userGearLists, setUserGearLists] = useState([]);
+  const [preparePanelList, setEditPanelList] = useState(null);
 
   const handleSetModalState = (callback, args) => {
     // Handle passing callback function to allow action on modal
@@ -19,7 +20,7 @@ function App() {
     setModalState({ callback, args });
   };
 
-  const handleSetEditPanelList = (gearList) => {
+  const handleSetPreparePanelList = (gearList) => {
     // Handle setting Prepare Panel
     if (gearList === null) {
       setEditPanelList(null);
@@ -32,8 +33,10 @@ function App() {
     <div className="App">
       <Header />
       <Content
+        userGearLists={userGearLists}
+        setUserGearLists={setUserGearLists}
         handleSetModalState={handleSetModalState}
-        handleSetEditPanelList={handleSetEditPanelList}
+        handleSetPreparePanelList={handleSetPreparePanelList}
       />
 
       {modalState != null && (
@@ -43,10 +46,12 @@ function App() {
         />
       )}
 
-      {editPanelList !== null && (
+      {preparePanelList !== null && (
         <PreparePanel
-          editingList={editPanelList}
-          handleSetEditPanelList={handleSetEditPanelList}
+          preparingList={preparePanelList}
+          handleSetPreparePanelList={handleSetPreparePanelList}
+          userGearLists={userGearLists}
+          setUserGearLists={setUserGearLists}
         />
       )}
     </div>
