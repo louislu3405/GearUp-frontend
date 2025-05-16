@@ -1,0 +1,25 @@
+.check {
+  display: flex;
+  width: 0.875rem;
+  height: 0.875rem;
+  aspect-ratio: 1/1;
+  border-radius: 0.125rem;
+  background: var(--Surface-Default, #116A8D);
+}
+
+.check:hover {
+  cursor: pointer;
+}
+
+.uncheck {
+  width: 0.75rem;
+  height: 0.75rem;
+
+  border-radius: 0.125rem;
+  border: 1px solid var(--Greyscale-Border-Default, #ABABAB);
+  background: var(--Color-White, #FFF);
+}
+
+.uncheck:hover {
+  cursor: pointer;
+}

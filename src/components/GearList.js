@@ -4,7 +4,10 @@ import GearListTemplate from "./GearListTemplate";
 import CreateGearListDetails from "./CreateGearListDetails";
 import CONSTANTS from "../constants"
 
-export default function CreateGearList ({ handleSetModalState }) {
+export default function CreateGearList({
+  handleSetModalState, // For Delete List
+  handleSetEditPanelList, // For Prepare side panel
+}) {
 	const [newGearList, setNewGearList] = useState([]);
 	const [newGearStage, setNewGearStage] = useState(CONSTANTS.gearListState.LIST);
 	const [userGearLists, setUserGearLists] = useState([]);
@@ -19,6 +22,7 @@ export default function CreateGearList ({ handleSetModalState }) {
 					setUserGearLists={setUserGearLists}
 					setNewGearList={setNewGearList}
 					handleSetModalState={handleSetModalState}
+					handleSetEditPanelList={handleSetEditPanelList}
 				/>
 			}
 			{
