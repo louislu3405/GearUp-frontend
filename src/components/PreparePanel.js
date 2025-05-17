@@ -67,6 +67,14 @@ export default function PreparePanel({
     updateUserGearLists(updatedPreparingList);
   }
 
+  const handleMouseEnterNote = (itemId, element) => {
+    if (element.scrollWidth > element.clientWidth) setToolTipId(itemId);
+  };
+
+  const handleMouseLeaveNote = () => {
+    setToolTipId(null);
+  };
+
   return (
     <div className={style["full-screen-cover"]}>
       <div className={style["panel"]}>
@@ -109,12 +117,14 @@ export default function PreparePanel({
                   />
                 </td>
                 <td className={style["td-regular"]}>{item.name}</td>
-                <td
-                  className={style["td-regular"]}
-                  onMouseEnter={() => setToolTipId(item.id)}
-                  onMouseLeave={() => setToolTipId(null)}
-                >
-                  <div className={style["td-text"]}>
+                <td className={style["td-regular"]}>
+                  <div
+                    className={style["td-text"]}
+                    onMouseEnter={(event) =>
+                      handleMouseEnterNote(item.id, event.currentTarget)
+                    }
+                    onMouseLeave={() => handleMouseLeaveNote()}
+                  >
                     {item.note ? item.note : "--"}
                   </div>
                   {tootipId === item.id && (
