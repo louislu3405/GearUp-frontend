@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CONSTANTS from "../constants";
 import Button, {
   BUTTON_TYPES,
@@ -5,6 +6,7 @@ import Button, {
   ICON_TYPES,
 } from "./atomic/button/Button";
 import Checkbox from "./atomic/Checkbox";
+import Tooltip from "./atomic/Tooltip";
 import style from "./PreparePanel.module.css";
 
 export default function PreparePanel({
@@ -13,6 +15,8 @@ export default function PreparePanel({
   userGearLists, // Gear Lists on the table view
   setUserGearLists, // Update the table view lists
 }) {
+  const [tootipId, setToolTipId] = useState(null);
+
   const updateUserGearLists = (updatedPreparingList) => {
     // Update Gear Lists table after check/uncheck
     const updatedLists = userGearLists.map((gearList) =>
@@ -81,7 +85,7 @@ export default function PreparePanel({
           </div>
         </div>
         <table className={style["table"]}>
-          <thead className={style["thead"]}>
+          <thead>
             <tr className={style["tr-head"]}>
               <th className={style["th-empty"]} />
               <th className={style["th-text"]}>
@@ -94,7 +98,7 @@ export default function PreparePanel({
               </th>
             </tr>
           </thead>
-          <tbody className={style["tbody"]}>
+          <tbody>
             {preparingList.items.map((item) => (
               <tr key={item.id} className={style["tr"]}>
                 <td className={style["td-checkbox"]}>
@@ -104,9 +108,18 @@ export default function PreparePanel({
                     handleUnCheck={() => unprepareItem(item.id)}
                   />
                 </td>
-                <td className={style["td-text"]}>{item.name}</td>
-                <td className={style["td-text"]}>
-                  {item.note ? item.note : "--"}
+                <td className={style["td-regular"]}>{item.name}</td>
+                <td
+                  className={style["td-regular"]}
+                  onMouseEnter={() => setToolTipId(item.id)}
+                  onMouseLeave={() => setToolTipId(null)}
+                >
+                  <div className={style["td-text"]}>
+                    {item.note ? item.note : "--"}
+                  </div>
+                  {tootipId === item.id && (
+                    <Tooltip promptText={item.note ? item.note : "--"} />
+                  )}
                 </td>
               </tr>
             ))}
