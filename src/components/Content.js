@@ -1,13 +1,23 @@
-import style from "./Content.module.css"
+import style from "./Content.module.css";
 import NavPanel from "./NavPanel";
-import CreateGearList from "./GearList";
+import GearList from "./GearList";
 
-export default function Content({ handleSetModalState }) {
+export default function Content({
+  userGearLists, // Existing gear lists
+  setUserGearLists, // Set existing gear lists
+  handleSetModalState, // For Delete List modal
+  handleSetPreparePanelList, // For Prepare side panel
+}) {
   return (
     <div className={style.container}>
       <NavPanel />
       <div className={style["main-content"]}>
-        <CreateGearList handleSetModalState={handleSetModalState} />
+        <GearList
+          userGearLists={userGearLists}
+          setUserGearLists={setUserGearLists}
+          handleSetModalState={handleSetModalState}
+          handleSetPreparePanelList={handleSetPreparePanelList}
+        />
       </div>
     </div>
   );

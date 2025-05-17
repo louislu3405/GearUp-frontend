@@ -1,0 +1,37 @@
+.wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.diamond {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  height: 0.5rem;
+  width: 0.5rem;
+  transform: rotate(45deg);
+
+  border-radius: 0.125rem 0rem 0rem 0rem;
+  background-color: #1F1F1F;
+
+}
+
+.text {
+  padding: 0.375rem 0.5rem;
+  position: absolute;
+  width: 100%;
+  top: 0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-radius: 0.125rem;
+  background-color: #1F1F1F;
+  color: var(--Color-White, #FFF);
+
+  /* Body/Regular */
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+}

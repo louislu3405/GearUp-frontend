@@ -40,6 +40,7 @@ const calculateProgressPercentage = (items) => {
 
 export default function GearListTable({
   gearLists,
+  handleClickListName, // For Prepare side panel
   handleClickEdit, // Edit button in dropdown
   handleClickDupldate, // Duplicate button in dropdown
   handleClickDelete, // Delete button in dropdown
@@ -138,6 +139,7 @@ export default function GearListTable({
                     <td className={style["td-small"]}></td>
                     <td
                       className={`${style["td-regular"]} ${style["td-name"]}`}
+                      onClick={() => handleClickListName(gearList)}
                     >
                       {gearList.listName}
                     </td>
