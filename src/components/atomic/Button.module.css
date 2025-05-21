@@ -30,15 +30,34 @@
   border: 1px solid var(--Surface-Lighter, #BFE7F7);
 }
 
+.button-primary:active {
+  color: var(--Greyscale-Text-Negative, #F5F5F5);
+  background: var(--Surface-Darker, #0A4156);
+  border: 1px solid var(--Surface-Darker, #0A4156);
+}
+
 .button-secondary {
   background: #FFF;
   border: 1px solid #116A8D;
   color: #116A8D;
 }
 
+.button-secondary:active {
+  color: var(--Greyscale-Text-Negative, #F5F5F5);
+  border-radius: var(--Radius-M, 0.5rem);
+  border: 1px solid var(--Surface-Darker, #0A4156);
+  background: var(--Surface-Default, #116A8D);
+}
+
 .button-tertiary {
   background: none;
   border: 1px none;
+}
+
+.button-tertiary:active {
+  color: var(--Surface-Darker, #0A4156);
+  border: 1px solid none;
+  background: none;
 }
 
 .button-iconOnly {
