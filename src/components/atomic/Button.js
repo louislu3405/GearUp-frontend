@@ -41,7 +41,7 @@ export default function Button({
 }) {
   return (
     <div className={style["button-wrapper"]}>
-      <div
+      <button
         onClick={callBack}
         className={`${style["button"]} ${style[getButtonClassName(buttonType)]} ${iconPosition === ICON_POSITION.ICON_ONLY ? style["button-iconOnly"] : ""}`}
       >
@@ -63,7 +63,7 @@ export default function Button({
             <Icon iconType={iconType} iconColor={getIconColor(buttonType)} />
           </>
         )}
-      </div>
+      </button>
     </div>
   );
 }

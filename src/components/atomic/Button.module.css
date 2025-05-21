@@ -9,18 +9,36 @@
   gap: 0.2rem;
   padding: 0.5rem 1rem;
 
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: var(--Surface-Lighter, #BFE7F7);
+  color: var(--Text-Text-color, #0A4156);
 }
 
 .button-primary {
   background: #116A8D;
+  /* Without border primary button will be smaller */
+  border: 1px solid #116A8D; 
   color: #F5F5F5;
+}
+
+/* Keep button border color consistent */
+.button-primary:hover {
+  border: 1px solid var(--Surface-Lighter, #BFE7F7);
 }
 
 .button-secondary {
   background: #FFF;
   border: 1px solid #116A8D;
   color: #116A8D;
+}
+
+.button-tertiary {
+  background: none;
+  border: 1px none;
 }
 
 .button-iconOnly {
