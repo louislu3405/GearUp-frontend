@@ -23,18 +23,13 @@
   line-height: 150%; /* 1.5rem */
 }
 
-.table-wrapper {
-  display: flex;
-}
-
 .table {
-  flex: 1 0 0;
-  font-size: 0.875rem;
+  width: 70rem;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
 .table-head-row {
-  display: flex;
-
   border-bottom: 1px solid #EBEBEB;
   background-color: #FAFDFE;
   text-align: left;
@@ -46,13 +41,14 @@
 }
 
 .th-small {
+  width: 0.875rem;
   padding: 1rem;
 }
 
 .th-regular {
   position: relative;
   padding: 1rem;
-  flex: 1 0 0;
+  width: 10.85rem;
 }
 
 .divider {
@@ -66,8 +62,6 @@
 }
 
 .table-body-row {
-  display: flex;
-
   border-bottom: 1px solid #EBEBEB;
   line-height: 150%;
 
@@ -82,7 +76,6 @@
 }
 
 .td-regular {
-  flex: 1 0 0;
   padding: 1rem;
 }
 
