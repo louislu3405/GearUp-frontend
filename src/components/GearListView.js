@@ -2,7 +2,7 @@ import CONSTANTS from "../constants";
 import { useState, useEffect, useRef } from "react";
 
 import style from "./GearListView.module.css";
-import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/button/Button";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/Button";
 import ContentTitle from "./ContentTitle";
 import NoGearList from "./layout/NoGearList";
 import GearListTable from "./layout/GearListTable";

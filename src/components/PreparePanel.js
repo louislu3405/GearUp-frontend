@@ -4,7 +4,7 @@ import Button, {
   BUTTON_TYPES,
   ICON_POSITION,
   ICON_TYPES,
-} from "./atomic/button/Button";
+} from "./atomic/Button";
 import Checkbox from "./atomic/Checkbox";
 import Tooltip from "./atomic/Tooltip";
 import style from "./PreparePanel.module.css";

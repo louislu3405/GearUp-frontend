@@ -3,7 +3,7 @@ import Button, {
   BUTTON_TYPES,
   ICON_POSITION,
   ICON_TYPES,
-} from "./atomic/button/Button";
+} from "./atomic/Button";
 import style from "./CreateGearListForm.module.css";
 import SelectInputField from "./SelectInputField";
 

@@ -1,7 +1,7 @@
 // Design System - New Button
 import style from "./Button.module.css";
-import Icon from "../../icons/Icon";
-export { ICON_TYPES } from "../../icons/Icon";
+import Icon from "../icons/Icon";
+export { ICON_TYPES } from "../icons/Icon";
 
 export const BUTTON_TYPES = {
   PRIMARY: "primary",
