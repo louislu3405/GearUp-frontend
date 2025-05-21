@@ -101,117 +101,110 @@ export default function GearListTable({
           />
         </div>
       </div>
-      <div className={style["table-wrapper"]}>
-        <table className={style["table"]}>
-          <thead>
-            <tr className={style["table-head-row"]}>
-              <th className={style["th-small"]}></th>
-              <th className={style["th-regular"]}>
-                <div className={style["divider"]} />
-                Name
-              </th>
-              <th className={style["th-regular"]}>
-                <div className={style["divider"]} />
-                Activity
-              </th>
-              <th className={style["th-regular"]}>
-                <div className={style["divider"]} />
-                Progress
-              </th>
-              <th className={style["th-regular"]}>
-                <div className={style["divider"]} />
-                Description
-              </th>
-              <th className={style["th-regular"]}>
-                <div className={style["divider"]} />
-                Last modified
-              </th>
-              <th className={style["th-small"]}>
-                <div className={style["divider"]} />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredGearLists.map(
-              (gearList) =>
-                gearList.image === null && (
-                  <tr key={gearList.id} className={style["table-body-row"]}>
-                    <td className={style["td-small"]}></td>
-                    <td
-                      className={`${style["td-regular"]} ${style["td-name"]}`}
-                      onClick={() => handleClickListName(gearList)}
-                    >
-                      {gearList.listName}
-                    </td>
-                    <td className={style["td-regular"]}>{gearList.activity}</td>
-                    <td
-                      className={`${style["td-regular"]} ${style["td-progress"]}`}
-                    >
-                      <div className={style["progress-wrapper"]}>
-                        <ProgressBar
-                          percentage={calculateProgressPercentage(
-                            gearList.items,
-                          )}
-                        />
-                      </div>
-                      <div className={style["percentage-wrapper"]}>
-                        {calculateProgressPercentage(gearList.items)}%
-                      </div>
-                    </td>
-                    <td className={style["td-regular"]}>
-                      {gearList.description === null
-                        ? "--"
-                        : gearList.description}
-                    </td>
-                    <td className={style["td-regular"]}>
-                      {formatDatetime(gearList.lastEdited)}
-                    </td>
-                    <td className={`${style["td-small"]} ${style["td-icon"]}`}>
-                      <div onClick={() => setVisibleDropdownId(gearList.id)}>
-                        <Icon
-                          iconType={ICON_TYPES.KABAB}
-                          iconColor={"#3B3B3B"}
-                        />
-                      </div>
-                      {visibleDropdownId === gearList.id && (
-                        <div
-                          className={style["float-dropdown"]}
-                          ref={dropdownRef}
-                        >
-                          <DropdownMenu
-                            items={[
-                              {
-                                text: "Edit",
-                                callBack: () => {
-                                  setVisibleDropdownId(null);
-                                  handleClickEdit(gearList);
-                                },
+      <table className={style["table"]}>
+        <thead>
+          <tr className={style["table-head-row"]}>
+            <th className={style["th-small"]}></th>
+            <th className={style["th-regular"]}>
+              <div className={style["divider"]} />
+              Name
+            </th>
+            <th className={style["th-regular"]}>
+              <div className={style["divider"]} />
+              Activity
+            </th>
+            <th className={style["th-regular"]}>
+              <div className={style["divider"]} />
+              Progress
+            </th>
+            <th className={style["th-regular"]}>
+              <div className={style["divider"]} />
+              Description
+            </th>
+            <th className={style["th-regular"]}>
+              <div className={style["divider"]} />
+              Last modified
+            </th>
+            <th className={style["th-small"]}>
+              <div className={style["divider"]} />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredGearLists.map(
+            (gearList) =>
+              gearList.image === null && (
+                <tr key={gearList.id} className={style["table-body-row"]}>
+                  <td className={style["td-small"]}></td>
+                  <td
+                    className={`${style["td-regular"]} ${style["td-name"]}`}
+                    onClick={() => handleClickListName(gearList)}
+                  >
+                    {gearList.listName}
+                  </td>
+                  <td className={style["td-regular"]}>{gearList.activity}</td>
+                  <td
+                    className={`${style["td-regular"]} ${style["td-progress"]}`}
+                  >
+                    <div className={style["progress-wrapper"]}>
+                      <ProgressBar
+                        percentage={calculateProgressPercentage(gearList.items)}
+                      />
+                    </div>
+                    <div className={style["percentage-wrapper"]}>
+                      {calculateProgressPercentage(gearList.items)}%
+                    </div>
+                  </td>
+                  <td className={style["td-regular"]}>
+                    {gearList.description === null
+                      ? "--"
+                      : gearList.description}
+                  </td>
+                  <td className={style["td-regular"]}>
+                    {formatDatetime(gearList.lastEdited)}
+                  </td>
+                  <td className={`${style["td-small"]} ${style["td-icon"]}`}>
+                    <div onClick={() => setVisibleDropdownId(gearList.id)}>
+                      <Icon iconType={ICON_TYPES.KABAB} iconColor={"#3B3B3B"} />
+                    </div>
+                    {visibleDropdownId === gearList.id && (
+                      <div
+                        className={style["float-dropdown"]}
+                        ref={dropdownRef}
+                      >
+                        <DropdownMenu
+                          items={[
+                            {
+                              text: "Edit",
+                              callBack: () => {
+                                setVisibleDropdownId(null);
+                                handleClickEdit(gearList);
                               },
-                              {
-                                text: "Duplicate",
-                                callBack: () => {
-                                  setVisibleDropdownId(null);
-                                  handleClickDupldate(gearList);
-                                },
+                            },
+                            {
+                              text: "Duplicate",
+                              callBack: () => {
+                                setVisibleDropdownId(null);
+                                handleClickDupldate(gearList);
                               },
-                              {
-                                text: "Delete",
-                                callBack: () => {
-                                  setVisibleDropdownId(null);
-                                  handleClickDelete(gearList.id);
-                                },
+                            },
+                            {
+                              text: "Delete",
+                              callBack: () => {
+                                setVisibleDropdownId(null);
+                                handleClickDelete(gearList.id);
                               },
-                            ]}
-                          ></DropdownMenu>
-                        </div>
-                      )}
-                    </td>
-                  </tr>
-                ),
-            )}
-          </tbody>
-        </table>
-      </div>
+                            },
+                          ]}
+                        ></DropdownMenu>
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ),
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }
