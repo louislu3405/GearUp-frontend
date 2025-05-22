@@ -5,7 +5,7 @@ import CONSTANTS from "../constants";
 import BackLink from "./BackLink";
 import ContentTitle from "./ContentTitle";
 
-import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/button/Button";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/Button";
 import CreateGearListForm from "./CreateGearListForm";
 
 export default function CreateGearListDetails({

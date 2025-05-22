@@ -2,7 +2,7 @@
 //
 // Rendered on GearListView when no gear list is available.
 import style from "./NoGearList.module.css";
-import Button, { BUTTON_TYPES, ICON_POSITION } from "../atomic/button/Button";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "../atomic/Button";
 
 export default function NoGearList({
   // function for handling clicking Create a gear list button.

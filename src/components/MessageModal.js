@@ -1,5 +1,5 @@
 import style from "./MessageModal.module.css";
-import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/button/Button";
+import Button, { BUTTON_TYPES, ICON_POSITION } from "./atomic/Button";
 
 export default function MessageModal({
   modalState, // modal control

@@ -1,0 +1,72 @@
+.button-wrapper {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.5rem 1rem;
+
+  border-radius: 0.5rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: var(--Surface-Lighter, #BFE7F7);
+  color: var(--Text-Text-color, #0A4156);
+}
+
+.button-primary {
+  background: #116A8D;
+  /* Without border primary button will be smaller */
+  border: 1px solid #116A8D; 
+  color: #F5F5F5;
+}
+
+/* Keep button border color consistent */
+.button-primary:hover {
+  border: 1px solid var(--Surface-Lighter, #BFE7F7);
+}
+
+.button-primary:active {
+  color: var(--Greyscale-Text-Negative, #F5F5F5);
+  background: var(--Surface-Darker, #0A4156);
+  border: 1px solid var(--Surface-Darker, #0A4156);
+}
+
+.button-secondary {
+  background: #FFF;
+  border: 1px solid #116A8D;
+  color: #116A8D;
+}
+
+.button-secondary:active {
+  color: var(--Greyscale-Text-Negative, #F5F5F5);
+  border-radius: var(--Radius-M, 0.5rem);
+  border: 1px solid var(--Surface-Darker, #0A4156);
+  background: var(--Surface-Default, #116A8D);
+}
+
+.button-tertiary {
+  background: none;
+  border: 1px none;
+}
+
+.button-tertiary:active {
+  color: var(--Surface-Darker, #0A4156);
+  border: 1px solid none;
+  background: none;
+}
+
+.button-iconOnly {
+  padding: 0.63rem;
+}
+
+.button-text{
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
