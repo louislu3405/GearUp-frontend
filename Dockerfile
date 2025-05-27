@@ -1,3 +1,10 @@
+FROM node:lts AS dev
+WORKDIR /app
+COPY package* ./
+RUN yarn install
+CMD ["yarn", "start"]
+EXPOSE 3000
+
 FROM node:lts AS build
 WORKDIR /app
 COPY package* ./
