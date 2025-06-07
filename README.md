@@ -71,6 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Docker commands:
 Build dev image:
-`docker build --target dev -t gear-up-dev .`
+`docker build --target dev -t gear-up-frontend-dev .`
 Start dev container from Command Prompt:
-`docker run --rm -v %cd%:/app -p 3000:3000 gear-up-dev`
+`docker run --rm -v %cd%:/app -p 3000:3000 gear-up-frontend-dev`
